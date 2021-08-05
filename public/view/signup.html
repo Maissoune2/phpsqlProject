@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انشاء حساب</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="container" id="content">
+        <section id="sect">
+            <header>انشاء حساب جديد:</header>
+            <form method="POST" class="signup">
+                <div class="err_msg">هنا يتم عرض رسالة الخطا</div>
+                    <div class="field">
+                        <label>الاسم الاول:</label>
+                        <input name="fname" type="text" required placeholder="الاسم الاول">
+                    </div>
+                    <div class="field">
+                        <label>اسم العائلة:</label>
+                        <input name="lname" type="text" required placeholder="اسم العائلة">
+                    </div>
+                <div class="field">
+                        <label>تاريخ الميلاد:</label>
+                        <input name="age" type="date" value="2000-01-01" required>
+                    </div>
+                    <div class="field">
+                        <label>البريد الالكتروني:</label>
+                        <input name="email" type="email" required placeholder="البريد الالكتروني (الايميل)">
+                    </div>
+                    <div class="field">
+                        <label>كلمة المرور:</label>
+                        <input minlength="8" name="password" type="password" required placeholder="كلمة المرور ، على الأقل 8 حروف او رموز خاصة">
+                    </div>
+                    <div class="btn submit">
+                        <input name="signup" type="submit" value="انشاء حساب">
+                    </div>
+                    <div class="link">
+                        <p>لديك حساب من قبل ؟ <a href="#">قم بتسجيل الدخول</a></p>
+                    </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- JAVASCRIPT CODE PART  -->
+    <script>
+        var container = document.getElementById("content");
+        var sect = document.getElementById("sect");
+        container.style.height = screen.height + "px";  //جعل طول الصفحة يتساوى مع طول شاشة الجهاز المستعمل
+        if (screen.width < 500) {
+            sect.style.width = screen.width + "px";  //ادا كان عرض الشاشة اقل من 500 بيكسل ، يصبح عرض الصفحة متساوي مع عرض الجهاز المستعمل
+        } 
+    </script>
+</body>
+</html>

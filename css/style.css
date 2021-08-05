@@ -1,0 +1,91 @@
+/* font (google fontss) */
+
+/* colors */
+:root{
+    --red:#f3bdc1;
+    --gray:#6c757d;
+    --gray-dark:#343a40;
+    --danger:#dc3545;
+    --light:#f8f9fa;
+    --dark:#343a40;
+}
+
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container section{
+    width: 450px;
+    padding: 25px 30px;
+    border: 1px solid #000;
+    border-radius: 16px;
+    margin: 0 auto;
+}
+.container section header{
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-weight: bolder;
+    font-size: 25px;
+    border-bottom: 0.5vh solid var(--gray-dark);
+}
+.container section form .err_msg{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin: 10px 0;
+    background: var(--red);
+    border: 1px solid var(--danger);
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 16px;
+    /* display: none; */
+}
+.container section form div {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+.container section form .field label{
+    padding-bottom: 8px;
+    padding-right: 8px;
+    font-weight: 800;
+}
+.container section form .field input{
+    height: 35px;
+    border-radius: 8px;
+    padding: 0 8px;
+    outline: none;
+    border: none;
+    border: 0.25vh solid var(--gray);
+}
+.container section form .btn input{
+    height: 35px;
+    border-radius: 8px;
+    padding: 0 8px;
+    border: none;
+    background-color: var(--dark);
+    color: var(--light);
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 16px;
+}
+.container section form .link{
+    text-align: center;
+    padding-top: 10px;
+    font-weight: 800;
+    font-size: 16px;
+}
+@media only screen and (min-width:300px) and (max-width:483px){
+    .container section{
+        margin: 0 10px;
+    }
+}
