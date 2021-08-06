@@ -11,8 +11,8 @@
     <div class="container" id="content">
         <section id="sect">
             <header>انشاء حساب جديد:</header>
-            <form method="POST" class="signup">
-                <div class="err_msg">هنا يتم عرض رسالة الخطا</div>
+            <form method="POST" id="signup" enctype="multipart/form-data">
+                <header class="err_msg" id="error">هنا يتم عرض رسالة الخطا</header>
                     <div class="field">
                         <label>الاسم الاول:</label>
                         <input name="fname" type="text" required placeholder="الاسم الاول">
@@ -33,8 +33,12 @@
                         <label>كلمة المرور:</label>
                         <input minlength="8" name="password" type="password" required placeholder="كلمة المرور ، على الأقل 8 حروف او رموز خاصة">
                     </div>
-                    <div class="btn submit">
-                        <input name="signup" type="submit" value="انشاء حساب">
+                    <div class="field file">
+                        <label>اختر صورة لبروفايلك:</label>
+                        <input name="img" type="file" required>
+                    </div>
+                    <div class="btn">
+                        <input id="submitbtn" type="submit" value="انشاء حساب">
                     </div>
                     <div class="link">
                         <p>لديك حساب من قبل ؟ <a href="#">قم بتسجيل الدخول</a></p>
@@ -52,5 +56,6 @@
             sect.style.width = screen.width + "px";  //ادا كان عرض الشاشة اقل من 500 بيكسل ، يصبح عرض الصفحة متساوي مع عرض الجهاز المستعمل
         } 
     </script>
+    <script src="../../javascript/signup.js"></script>
 </body>
 </html>

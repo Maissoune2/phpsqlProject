@@ -47,7 +47,7 @@
     border-radius: 8px;
     font-weight: 800;
     font-size: 16px;
-    /* display: none; */
+    display: none;
 }
 .container section form div {
     display: flex;
@@ -66,6 +66,9 @@
     outline: none;
     border: none;
     border: 0.25vh solid var(--gray);
+}
+.container section form .file input{
+    border: none;
 }
 .container section form .btn input{
     height: 35px;
