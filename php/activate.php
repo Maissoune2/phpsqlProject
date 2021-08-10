@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="../css/style2.css">
+<div class="container">
 <?php
 if (isset($_GET['code']) && isset($_GET['email'])) {  //التاكد من ادا كان المستخدم قد وصل الى هده الصفحة عن طريق الضغط على الرابط المرسل اليه عن طريق البريد الالكتروني
     //الاتصال بقاعدة البيانات
-    include_once 'config.php';
+    include_once 'conf.php';
     $email = filter_input(INPUT_GET , 'email' , FILTER_SANITIZE_EMAIL);//filter the email
 
     $check = $con->prepare("SELECT * FROM users 
@@ -17,16 +19,17 @@ if (isset($_GET['code']) && isset($_GET['email'])) {  //التاكد من ادا
         if ($user->activated === "1") {   //التاكد من حالة الحساب ان كان مفعلا ام لا
             echo '<div style="text-align:center; padding: 15px; 
             margin-top:15px; font-weight: 800; font-size: 16px; 
-            border:1px solid #c77979; background:#f8b6b6;  
+            border:1px solid #dc3545; background:#f3bdc1;  
             border-radius:8px;">هدا الحساب مفعل سابقا</div>';  
 
         }else{
             //ان لم يكن الحساب مفعلا سابقا سيتم عرض زر يسمح للمستخدم بتفعيل حسابه
 
-        echo '<form method="POST"><button style="border: none; padding:10px; background:#ccc; 
+        echo '<form method="POST"><button style="border: none; outline:none; width:200px;
+        padding:10px; background:#343a40; color:#f8f9fa;
         border:1px solid #000; 
-        border-radius:8px; font-weight:800; 
-        font-size:16px;" name="active" type="submit">تفعيل</button></form>';
+        border-radius:8px; font-weight:800; cursor:pointer; 
+        font-size:16px;" name="active" type="submit">تفعيل الحساب</button></form>';
         
         if (isset($_POST['active'])) { //عندما يقوم المستخدم بالضغط على زر التفعيل
             $sql4 = $con->prepare("SELECT email , security_code  FROM users 
@@ -54,24 +57,42 @@ if (isset($_GET['code']) && isset($_GET['email'])) {  //التاكد من ادا
             if ($sql5->execute()) { 
             echo '<div style="text-align:center; padding: 15px; 
             margin-top:15px; font-weight: 800; font-size: 16px; 
-            border:1px solid #c77979; background:#f8b6b6;  
+            border:1px solid #dc3545; background:#f3bdc1;  
             border-radius:8px;">لقد تم تفعيل حسابك بنجاح</div>';
-            echo '<a href="login.php"><button>تسجيل الدخول</button></a>'; //السماح للمستخدم بتسجيل الدخول
+            echo '<a href="../public/view/login.html"><button style="
+            width:200px;border:none;outline:none;border-radius:8px;margin:15px 0;
+            background:#343a40;padding:10px;cursor:pointer;font-weight:800;font-size:16px;">تسجيل الدخول</button></a>'; //السماح للمستخدم بتسجيل الدخول
             } else {
-            echo 'لم يتم تفعيل حسابك ، حدث خطا';
+            echo '<div style="text-align:center; padding: 15px; 
+            margin-top:15px; font-weight: 800; font-size: 16px; 
+            border:1px solid #dc3545; background:#f3bdc1;  
+            border-radius:8px;">تم اكتشاف حدوث اخطاء، لم يتم تفعيل الحساب</div>';
             }
 
             }else{
-            echo 'بيانات غير صحيحة';
+                echo '<div style="text-align:center; padding: 15px; 
+                margin-top:15px; font-weight: 800; font-size: 16px; 
+                border:1px solid #dc3545; background:#f3bdc1;  
+                border-radius:8px;">بيانات غير صحيحة</div>';
             }
         }    
     }
 }else{
-    echo 'لا يوجد حساب بنفس البريد الالكتروني';
+    echo '<div style="text-align:center; padding: 15px; 
+                margin-top:15px; font-weight: 800; font-size: 16px; 
+                border:1px solid #dc3545; background:#f3bdc1;  
+                border-radius:8px;">حساب غير موجود سابقا</div>';
 }
 
 } else {
-    echo 'الرجاء الاطلاع على ايميلك من اجل تفعيل الحساب';
+    echo '<div style="text-align:center; padding: 15px; 
+                margin-top:15px; font-weight: 800; font-size: 16px; 
+                border:1px solid #dc3545; background:#f3bdc1;  
+                border-radius:8px;">الرجاء الاطلاع على ايميلك من اجل تفعيل الحساب</div>';
 }
+
+?>
+</div>
+
 
 

@@ -6,12 +6,12 @@ include_once 'apiHeaders.php';
 if (!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['age'] && !empty($_POST['email']) && !empty($_POST['password']))) 
 {
     //assign the data to variables and filter the inputs
-    $fname = filter_input(INPUT_POST , 'fname' , FILTER_SANITIZE_STRING);
-    $lname =filter_input( INPUT_POST , 'lname' , FILTER_SANITIZE_STRING ); 
-    $age =filter_input(INPUT_POST , 'age' , FILTER_SANITIZE_STRING);
-    $email =filter_input(INPUT_POST , 'email' , FILTER_SANITIZE_EMAIL);
-    $password =filter_input( INPUT_POST , 'password' , FILTER_SANITIZE_STRING);
-    $hashPass = password_hash($password , PASSWORD_BCRYPT);  //تشفير كلمة المرور
+    $fname =trim(filter_input(INPUT_POST , 'fname' , FILTER_SANITIZE_STRING)) ;
+    $lname =trim(filter_input( INPUT_POST , 'lname' , FILTER_SANITIZE_STRING )); 
+    $age =trim(filter_input(INPUT_POST , 'age' , FILTER_SANITIZE_STRING));
+    $email =trim(filter_input(INPUT_POST , 'email' , FILTER_SANITIZE_EMAIL));
+    $password =trim(filter_input( INPUT_POST , 'password' , FILTER_SANITIZE_STRING));
+    $hashPass =password_hash($password , PASSWORD_BCRYPT);  //تشفير كلمة المرور
 
     // check if the email already exist or !exist
     include_once 'conf.php';
@@ -31,7 +31,7 @@ if (!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['age'] &
         
         $extensions = ["png" , "jpg" , "jpeg"]; //some valid extensions
         if (in_array($ext_img , $extensions) === true) {
-            $current_time = time(); //we'll get the current time
+            $current_time =rand(time(),1000) ; //we'll get the current time
             //change the img name to the current time to give each one a unique name
             $img_new_name = $current_time.$img_name;
             //let's move uploaded file to our particular directory
@@ -64,7 +64,7 @@ if (!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['age'] &
                 $mail->Body    = '<div dir="rtl">
                 <h1>تهانينا ، لقد حصلت على عضوية في موقعنا</h1>
                 <h2>نرجو منك تفعيل الحساب بالضغط على الزر الموجود اسفل :</h2>
-                <a href="http://localhost/project1/public/view/activate.html?code='.$code.'&email='.$email.'">
+                <a href="http://localhost/project1/public/view/activate.php?code='.$code.'&email='.$email.'">
                 <button style="width:100px; text-align:center; padding:15px; border:none;outline:none;background-color:#333;color:#fff;border-radius:8px;"  type="button">اضغط لتفعيل الحساب</button></a>
                 </div>';
                 if ($sql2->execute() && $mail->send()) {

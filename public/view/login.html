@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="container" id="content">
+        <section id="sect">
+            <header>تسجيل الدخول:</header>
+            <form method="POST" id="login">
+                <header class="err_msg" id="error">هنا يتم عرض رسالة الخطا</header>
+                    <div class="field">
+                        <label>البريد الالكتروني:</label>
+                        <input name="email" type="email" required placeholder="البريد الالكتروني (الايميل)">
+                    </div>
+                    <div class="field">
+                        <label>كلمة المرور:</label>
+                        <input minlength="8" name="password" type="password" required placeholder="كلمة المرور ، على الأقل 8 حروف او رموز خاصة">
+                    </div>
+                    <div class="btn">
+                        <input id="submitbtn" type="submit" value="تسجيل الدخول">
+                    </div>
+                    <div class="link">
+                        <p>لا تملك حسابا من قبل؟<a href="signup.html">قم بانشاء حساب</a></p>
+                    </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- JAVASCRIPT CODE PART  -->
+
+    <script src="../../javascript/signup.js"></script>
+</body>
+</html>
