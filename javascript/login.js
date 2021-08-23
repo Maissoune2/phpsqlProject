@@ -16,10 +16,10 @@ btnSubmit.onclick = () => {
     fetch("http://localhost/project1/php/login.php" , {
         method : 'POST',
         body : formdata 
-    }).then(response => response.json()).then(data => {
+    }).then(response => response.text()).then(data => {
         if (data == "success") {
             console.log(data);
-            location.href = "http://localhost/project1/public/user/user_dash.html";
+            location.href = "http://localhost/project1/public/user/user_dash.php";
         } else {
             let err_msg = document.getElementById("error");
             err_msg.style.display = "block";

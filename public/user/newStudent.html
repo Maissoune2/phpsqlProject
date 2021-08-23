@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container" id="content">
+        <section id="sect">
+            <header>انشاء حساب جديد:</header>
+            <form method="POST" id="signup">
+                <header class="err_msg" id="error">هنا يتم عرض رسالة الخطا</header>
+                <div class="field">
+                        <label>الاسم الاول:</label>
+                        <input name="fname" type="text" required placeholder="الاسم الاول">
+                </div>
+                <div class="field">
+                        <label>اسم العائلة:</label>
+                        <input name="lname" type="text" required placeholder="اسم العائلة">
+                </div>
+                <div class="field">
+                        <label>تاريخ الميلاد:</label>
+                        <input name="age" type="date" value="2000-01-01" required>
+                </div>
+                <div class="field">
+                    <label>المستوى الدراسي:</label>
+                    <select name="schoolYear">
+                        <option disabled value="empty">اختر واحدا</option>
+                        <option value="child">تحت سن التمدرس</option>
+                        <option value="primary">ابتدائي</option>
+                        <option value="cem">متوسط</option>
+                        <option value="lycee">ثانوي</option>
+                        <option value="univ">جامعي</option>
+                    </select>
+            </div>
+                <div class="field">
+                        <label>رقم الهاتف:</label>
+                        <input name="phoneNumber" type="text" required placeholder="رقم الهاتف">
+                </div>
+                <div class="btn">
+                        <input id="submitbtn" type="submit" value="اضافة حساب">
+                </div>
+                <div class="link">
+                        <p>طالب مسجل من قبل؟<a href="user_dash.php">العودة للصفحة الرئيسية</a></p>
+                </div>
+            </form>
+        </section>
+    </div>
+    <!-- JAVASCRIPT CODE PART  -->
+    <script>
+        var container = document.getElementById("content");
+        var sect = document.getElementById("sect");
+        container.style.height = screen.height + "px";  //جعل طول الصفحة يتساوى مع طول شاشة الجهاز المستعمل
+        if (screen.width < 500) {
+            sect.style.width = screen.width + "px";  //ادا كان عرض الشاشة اقل من 500 بيكسل ، يصبح عرض الصفحة متساوي مع عرض الجهاز المستعمل
+        } 
+    </script>
+
+
+<script src="../../javascript/newStudent.js"></script>
+</body>
+</html>
